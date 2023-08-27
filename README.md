@@ -1,1 +1,30 @@
-# Particles Pico-8
+# Lines Pico-8
+
+```lua
+
+frame = 0
+
+function _update()
+	frame += 1
+	
+	-- loop at f127
+	
+	if frame > 127 then
+		frame = 0
+	end
+end
+
+function _draw()
+	rectfill(0, 0, 127, 127, 0)
+	i = 0
+	while (i < 20) do
+		e = (i * 0.5)
+		line(0, (frame * e), 127 - (frame * e), 0, 7)
+		line((frame * e), 127, 0, (frame * e), 7)
+		line(127, 127 - (frame * e), (frame * e), 127, 7)
+		line(127 - (frame * e), 0, 127, 127 - (frame * e), 7)
+		i += 1
+	end
+end
+
+```
